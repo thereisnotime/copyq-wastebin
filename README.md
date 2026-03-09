@@ -50,6 +50,26 @@ On first use, if no URL is configured, you'll be prompted to enter one. You can 
 
 Settings are stored using CopyQ's `settings()` API under the `wastebin/` namespace.
 
+## Update
+
+Remove old commands first, then install the new version:
+
+```bash
+copyq eval 'var c = commands(); var keep = []; for (var i = 0; i < c.length; i++) { if (String(c[i].name).indexOf("Wastebin") < 0) keep.push(c[i]); } setCommands(keep);' && \
+curl -s https://raw.githubusercontent.com/thereisnotime/copyq-wastebin/master/wastebin-commands.ini | \
+  copyq eval 'var nc = importCommands(input()); var e = commands(); for (var i = 0; i < nc.length; i++) e.push(nc[i]); setCommands(e);'
+```
+
+Your configuration (URL, default expiry) is preserved since it's stored separately via `settings()`.
+
 ## Uninstall
+
+### CLI
+
+```bash
+copyq eval 'var c = commands(); var keep = []; for (var i = 0; i < c.length; i++) { if (String(c[i].name).indexOf("Wastebin") < 0) keep.push(c[i]); } setCommands(keep);'
+```
+
+### GUI
 
 Open CopyQ → **F6** → select and delete all commands starting with "Wastebin|".
