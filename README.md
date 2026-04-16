@@ -73,3 +73,8 @@ copyq eval 'var c = commands(); var keep = []; for (var i = 0; i < c.length; i++
 ### GUI
 
 Open CopyQ → **F6** → select and delete all commands starting with "Wastebin|".
+
+## More CopyQ plugins
+
+- [copyq-savefile](https://github.com/thereisnotime/copyq-savefile) — save clipboard items to timestamped files on disk
+- [copyq-qrcode](https://github.com/thereisnotime/copyq-qrcode) — generate QR codes from clipboard text
